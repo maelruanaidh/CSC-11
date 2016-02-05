@@ -1,0 +1,28 @@
+public class Expressions
+{   
+    public static void main (String [] args) {
+        int x = 2, y, ans1, ans2;
+        double z = 2, doubley, ans3, ans4;
+    
+        System.out.println("Lab2 an excerise in class Expressions.");
+        System.out.println("");
+        System.out.println("@author: Brian A. Mulrooney ");
+        System.out.println("@version: COSC 111, Winter 2016");
+        System.out.println("@Lab#: 2, part #1");
+        System.out.println("@Due date: 01.21.16");
+        System.out.println("");
+        
+        ans1 = x / 4;
+        ans2 = x / 3 * 3;
+        ans3 = x + z / 4;
+        ans4 = (((3 * x) + 4) / ((2 * z) - 1));
+        y = x + (int)z;
+        
+        System.out.println("x / 4 = " + ans1);
+        System.out.println("x / 3 * 3 = " + ans2);
+        System.out.println("x + z / 4 = " + ans3);
+        System.out.println("3x+4 / 2z-1 = " + ans4);
+        System.out.println("y = " + y);
+        
+    }
+}
