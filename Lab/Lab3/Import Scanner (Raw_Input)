@@ -1,0 +1,43 @@
+// import scanner to capture keyboard inputs.
+import java.util.Scanner;
+public class CarSaleman
+{
+    public static void main (String [] args)
+    {
+        // Initialize variables and constants.
+        final double SALES_TAX = 0.06;
+        final double LISC_RATE = 0.005;
+        final double DEST_FEE = 700.00;
+        final double DOC_FEE = 200.00;
+        final double PREP_FEE = 50.00;
+        double taxAmt = 0.00;
+        double liscAmt = 0.00;
+        double subTotal = 0.00;
+        double finalPrice = 0.00;
+        
+        // Initialize scanner for raw_input.
+        Scanner keyboard = new Scanner (System.in);
+        double basePrice;
+        
+        // Capture sales person input for base price of the car.
+        System.out.printf("Enter the base price of a car: $");
+        basePrice = keyboard.nextDouble();
+        
+        // Calc liscAmt, subTotal, taxAmt, & finalPrice here.
+        liscAmt = basePrice * LISC_RATE;
+        subTotal = (basePrice + DEST_FEE + DOC_FEE + PREP_FEE + liscAmt);
+        taxAmt = (basePrice * SALES_TAX);
+        finalPrice = subTotal + taxAmt;
+        
+        // Final output and print formating for the sales person.
+        System.out.printf("\n");
+        System.out.printf("Vehicle Base Price.....$%.2f\n",basePrice);
+        System.out.printf("Destination Charge.....$%.2f\n",DEST_FEE);
+        System.out.printf("Documentation..........$%.2f\n",DOC_FEE);
+        System.out.printf("Prep...................$%.2f\n",PREP_FEE);
+        System.out.printf("Liscense Plate.........$%.2f\n",liscAmt);
+        System.out.printf("Tax....................$%.2f\n\n",taxAmt);       
+        System.out.printf("Total..................$%.2f\n",finalPrice);
+        
+    }
+}
