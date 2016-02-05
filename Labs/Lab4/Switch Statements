@@ -1,0 +1,72 @@
+import java.util.Scanner;
+public class DaysinMonth
+{
+    public static void main (String [] args)
+    {
+        System.out.printf("Programmer: Brian A. Mulrooney \n");
+        System.out.printf("Course: COSC 111, Winter 2016 \n");
+        System.out.printf("Lab#: 4, part #2 \n");
+        System.out.printf("Due date: 2-4-16 \n");
+        System.out.printf("\n");
+        
+        String letterGrade;
+        int numDays = 0;
+        String monthString = "";
+        
+        Scanner keyboard = new Scanner (System.in);
+        int month;
+        System.out.printf("Enter a month (1-12): ");
+        month = keyboard.nextInt();
+        
+        switch (month) {
+            case 1:  monthString = "January";
+                     break;
+            case 2:  monthString = "February";
+                     break;
+            case 3:  monthString = "March";
+                     break;
+            case 4:  monthString = "April";
+                     break;
+            case 5:  monthString = "May";
+                     break;
+            case 6:  monthString = "June";
+                     break;
+            case 7:  monthString = "July";
+                     break;
+            case 8:  monthString = "August";
+                     break;
+            case 9:  monthString = "September";
+                     break;
+            case 10: monthString = "October";
+                     break;
+            case 11: monthString = "November";
+                     break;
+            case 12: monthString = "December";
+                     break;
+                    }
+                    
+        switch (month) {
+            case 1: case 3: case 5:
+            case 7: case 8: case 10:
+            case 12:
+                numDays = 31;
+                break;
+            case 4: case 6:
+            case 9: case 11:
+                numDays = 30;
+                break;
+            case 2:
+                numDays = 29;
+                break;
+            default:
+                break;
+            }
+        if (month == 0) {
+            System.out.println("Invalid input, TRY AGAIN!");
+        } else if (month >= 13) {
+            System.out.println("Invalid input, TRY AGAIN!");
+        } else {
+            System.out.println("There are " + numDays + " days in " + monthString);
+        }
+    }
+}
