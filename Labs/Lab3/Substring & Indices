@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class LoveOverHate
+{
+   public static void main (String [] args)
+    {
+        String firstSeg = "";
+        int secondSeg = 0;
+        String thirdSeg = "";
+        String output = "test";
+        
+        Scanner keyboard = new Scanner (System.in);
+        String input;
+        
+        // input = I hate canned peas but don't hate frozen peas.
+        System.out.printf("Enter a line of text:\n");
+        input = keyboard.nextLine();
+        
+        firstSeg = input.substring(0,secondSeg+1);
+        secondSeg = input.indexOf("hate");
+        thirdSeg = input.substring(firstSeg.length() + "hate".length()+1);
+        output = firstSeg + " love" + thirdSeg;
+        
+        System.out.printf("\n");
+        System.out.printf("I have rephrased that line to read:\n");
+        System.out.printf(output);
+        
+        // testing segment accuracy
+        //System.out.printf(firstSeg);
+        //System.out.print(secondSeg);
+        //System.out.printf(thirdSeg);
+        
+        
+    }
+}
