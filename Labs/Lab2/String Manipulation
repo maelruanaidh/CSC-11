@@ -1,0 +1,31 @@
+public class StringManips
+{
+    public static void main (String [] args) {
+        String bFranklin = "A penny saved is a penny earned", byBen;
+        char first, last;
+        int phraseLength, ans1, ans2, ans3;
+        
+        System.out.println("Lab2 an excerise in class String Manipulation.");
+        System.out.println("");
+        System.out.println("@author: Brian A. Mulrooney ");
+        System.out.println("@version: COSC 111, Winter 2016");
+        System.out.println("@Lab#: 2, part #2");
+        System.out.println("@Due date: 01.21.16");
+        System.out.println("");
+        
+        phraseLength = bFranklin.length();
+        first = bFranklin.charAt(0);
+        last = bFranklin.charAt(bFranklin.length()-1);
+        byBen = ": by Benjamin Franklin";
+        
+        System.out.println ("bFranklin = " + bFranklin);
+        System.out.println ("phraseLength = " + phraseLength);
+        System.out.println ("first = " + first + "           " + "last = " + last);
+        System.out.println (bFranklin.toUpperCase() + " "+ bFranklin);
+        System.out.println ("byBen = " + bFranklin + byBen);
+        System.out.println (bFranklin.substring(bFranklin.lastIndexOf("penny")).toUpperCase() + byBen.toUpperCase());
+        
+        
+        
+    }
+}
