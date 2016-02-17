@@ -11,7 +11,7 @@ public class Loops
         
         int num1, num2, counter;
         String again, isAuto;
-        System.out.println("Note: type quit (or q) to exit current loop.");
+        System.out.println("Note: type next (or n) to continue to next loop.");
         for (counter = 5; counter > 0; counter--)
         {   
             System.out.print(counter + "..");
@@ -53,19 +53,31 @@ public class Loops
                           System.out.print ("\nDo it again, (y/n)? ");
                           again = keyIn.next(); 
                         } while (again.equalsIgnoreCase("y") || again.equalsIgnoreCase("yes"));
-                    } else if (isAuto.equalsIgnoreCase("q") || isAuto.equalsIgnoreCase("quit")) {
+                    } else if (isAuto.equalsIgnoreCase("n") || isAuto.equalsIgnoreCase("next")) {
                         break;
                     }
-        }
-        System.out.println("Goodbye!");
+                }
         
-        System.out.print ("Enter a whole number: ");
+        System.out.printf("\nEnter a whole number: ");
         int n = keyIn.nextInt();
         for (int i = 2; i <= n; i++) {
             if (i % 2 == 0) {
                 System.out.print(i + "\t");
             }
         }
+        
+        int sum = 0;
+        System.out.printf("\nEntering an odd number will quit this loop");
+        while (sum <= 100)
+        {
+            System.out.printf("\nEnter an even number: ");
+            int number = keyIn.nextInt();
+            if (number % 2 != 0 ) {
+                System.exit(0);
+            }
+            sum += number;
+        }
+        System.out.println("Sum is equal to " + sum);
     }
 }
     
