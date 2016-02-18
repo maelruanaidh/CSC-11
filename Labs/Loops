@@ -1,0 +1,128 @@
+
+/**
+ * Programmer:  Brian A. Mulrooney
+ * Course:      COSC 111, Winter 2016
+ * Lab#:        5
+ * Due date:    Feb. 18th, 2016
+ */
+
+import java.util.Scanner;
+public class Loops
+{
+    public static void main (String []args)
+        {
+        Scanner keyIn = new Scanner (System.in);
+        String oddOrEven, repeat;
+        
+        // Name, date, ect...
+        System.out.println("Programmer:  Brian A. Mulrooney");
+        System.out.println("Course:      COSC 111, Winter 2016");
+        System.out.println("Lab#:        5");
+        System.out.println("Due date:    Feb. 18th, 2016");
+        
+        // do loop to repeat all loops
+        do {
+        int i=1, squareI=1, sum=0, x=1, start=1;
+        // if else loop
+        System.out.print("\nEnter a whole number: ");
+        int firstX = keyIn.nextInt();
+        if ((firstX%2)>0)
+        {
+            oddOrEven = "odd";
+        } else {
+            oddOrEven = "even";
+        }
+        System.out.println(firstX + " is " + oddOrEven);
+        
+        // for loop
+        System.out.println("\nNumbers from 1 through " + firstX + " are:");
+        for (int counter = 1; counter <= firstX; counter++)
+        {
+            System.out.print(counter + "\t");
+        }
+        
+        // while loop
+        System.out.println("\n\nSquare of odd numbers 1 through " + firstX + " are:");
+        while (i<=firstX)
+        {   
+            squareI=i*i;
+            if (i % 2 != 0)
+            {
+                System.out.print(squareI + "\t");
+            }
+            i++;
+        }
+
+        // while loop
+        System.out.println("\n\nSum of even numbers 1 from " + firstX + " is:");
+        while (x<=firstX)
+        {   
+          
+            if(x%2==0)
+            {
+                sum+=x;
+                
+            } 
+            x++;
+        }
+        System.out.println(sum);
+        //for loop
+        System.out.println("\nNumbers from 1 through " + firstX + " (5 numbers per line):");
+        for (int counter = 1; counter <= firstX; counter++)
+        {
+            System.out.print(counter+ (((counter-(start-1))%5==0) ? "\n" : " "));
+        }
+        
+        // finish with a do loop that repeats all the previous loops
+        System.out.print ("\n\nDo it again, yes (or no)? ");
+                          repeat = keyIn.next(); 
+        } while (repeat.equalsIgnoreCase("yes"));
+            
+    }
+}
+
+/*
+Programmer:  Brian A. Mulrooney
+Course:      COSC 111, Winter 2016
+Lab#:        5
+Due date:    Feb. 18th, 2016
+
+Enter a whole number: 12
+12 is even
+
+Numbers from 1 through 12 are:
+1	2	3	4	5	6	7	8	9	10	11	12	
+
+Square of odd numbers 1 through 12 are:
+1	9	25	49	81	121	
+
+Sum of even numbers 1 from 12 is:
+42
+
+Numbers from 1 through 12 (5 numbers per line):
+1 2 3 4 5
+6 7 8 9 10
+11 12 
+
+Do it again, yes (or no)? yes
+
+Enter a whole number: 11
+11 is odd
+
+Numbers from 1 through 11 are:
+1	2	3	4	5	6	7	8	9	10	11	
+
+Square of odd numbers 1 through 11 are:
+1	9	25	49	81	121	
+
+Sum of even numbers 1 from 11 is:
+30
+
+Numbers from 1 through 11 (5 numbers per line):
+1 2 3 4 5
+6 7 8 9 10
+11 
+
+Do it again, yes (or no)? no
+
+ */
