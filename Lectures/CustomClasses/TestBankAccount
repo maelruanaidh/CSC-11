@@ -1,0 +1,21 @@
+
+import java.util.Scanner;
+public class TestBankAccount
+{
+    public static void main (String [] args)
+    {
+        Scanner keyIn = new Scanner (System.in);
+        //open a bank account (create a bank account object)
+        BankAccount saving = new BankAccount();
+        saving.deposit(100);
+        saving.print();
+        System.out.printf("%.2f\n",saving.getBalance());
+        System.out.print("Enter how much to withdrawl: ");
+        double amount = keyIn.nextDouble();
+        saving.withdrawl(amount);
+        System.out.printf("%.2f\n",saving.getBalance());
+        saving.setData(500.00);
+        saving.print();
+        // System.out.println(saving);
+    }
+}
