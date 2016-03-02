@@ -1,0 +1,93 @@
+public class BankAccount
+{
+    /*
+    Creating a new Class called "BankAccount"
+        
+    What can we do with a bank account?
+        a. deposit
+        b. withdrawl
+        c. check balance
+        
+    Visibility Modifers
+        a. public
+        b. private
+        c. protected
+        
+    1. List Variables
+    2. List Actions (Methods)
+        a. heading
+            i. visibility modifier (public/private)
+            ii. type of returned value (double, string, boo)
+            iii. method name (getBalance)
+            iv. parameters (zero or more)
+    eg. public double getBalance(0)
+        b. body
+            i. must have at least one return statement
+    eg. public double getBalance ()
+        {
+            return balance;
+        }
+                    
+                    public void deposit (double amount)
+                    {
+                        balance = balance + amount;
+                    }
+                    
+                    public double withdrawal (double amount)
+                    {
+                        if (amount > balance)
+                        {
+                            system.out.println("Insufficient balance");
+                            return 0;
+                        } else {
+                            balance = balance - amount;
+                            return amount;
+                        }
+                    }
+         
+        */
+
+    private double balance;
+    
+        
+    //methods
+    //assign value to the instance variable(s)
+    public void setData (double amount)
+    {
+        balance = amount;
+    }
+    
+    //return the balance
+    public double getBalance()
+    {
+            return balance;
+    }
+        
+        // deposit amount of money into acocunt
+        public void deposit (double amount)
+        {
+            balance = balance + amount;
+        }
+        
+        // withdrawl amount from the account
+        public void withdrawl (double amount)
+        {
+            if (amount > balance)
+            {
+                System.out.println("Insufficient balance");
+                return;
+            } else {
+                balance = balance - amount;
+                return;
+            }
+        }
+        
+        // display the account statment
+        public void print()
+        {
+            System.out.printf("Balance: %.2f\n",balance);
+        }
+}
+
+
+
