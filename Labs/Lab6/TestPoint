@@ -1,0 +1,38 @@
+/*
+* Programmer:   Brian A. Mulrooney
+* Course:       COSC 111, Winter 2016
+* Lab#:         6
+* Due date:     03.03.16
+*/
+
+public class Point {
+    // two variables representing x & y coordinates
+    private double xValue, yValue;
+    
+    //create a method called setData; stores doubles for captured x & y values
+    public void setData (double x, double y) {
+        xValue = x;
+        yValue = y;
+    }
+    
+    //create a method called quadrant
+    public int quadrant () {
+        int q=0;
+        if (xValue >= 0 && yValue >= 0) {
+            q = 1;
+        } else if (xValue < 0 && yValue >=0) {
+            q = 2;
+        } else if (xValue < 0 && yValue < 0) {
+            q = 3;
+        } else {
+            q = 4;
+        }
+        return q;
+       
+    }
+    
+    //create a print method
+    public void print () {
+        System.out.print("(" + (int)xValue + "," + (int)yValue + ")");
+    }
+}
