@@ -1,0 +1,78 @@
+/*
+* Programmer:   Brian A. Mulrooney
+* Course:       COSC 111, Winter 2016
+* Lab#:         6
+* Due date:     03.03.16
+*/
+
+import java.util.Scanner;
+public class TestPoint {
+    public static void main (String [] args) {
+        String quadString = "", repeat;
+        Scanner keyIn = new Scanner (System.in);
+        System.out.println("Programmer:   Brian A. Mulrooney");
+        System.out.println("Course:       COSC 111, Winter 2016");
+        System.out.println("Lab#:         6");
+        System.out.println("Due date:     03.03.16");
+        
+        do {
+        System.out.printf("\n");
+        System.out.print("Enter the x and y coordinates of a point:");
+        double x = keyIn.nextDouble();
+        double y = keyIn.nextDouble();
+
+        Point first = new Point();
+        first.setData(x,y);
+        System.out.print("first = ");
+        first.print();
+        switch(first.quadrant()) {
+            case 1: quadString = "first quadrant";
+                    break;
+            case 2: quadString = "second quadrant";
+                    break;
+            case 3: quadString = "third quadrant";
+                    break;
+            case 4: quadString = "fourth quadrant";
+                    break;
+        }
+        System.out.printf("\n");
+        first.print();
+        System.out.print(" is in the " + quadString);
+        
+        // finish with a do loop that repeats all the previous loops
+        System.out.print ("\n\nDo it again, yes (or no)? ");
+                          repeat = keyIn.next(); 
+        } while (repeat.equalsIgnoreCase("yes"));    
+    }    
+}
+
+/*
+Programmer:   Brian A. Mulrooney
+Course:       COSC 111, Winter 2016
+Lab#:         6
+Due date:     03.03.16
+
+Enter the x and y coordinates of a point:1 3
+first = (1,3)
+(1,3) is in the first quadrant
+
+Do it again, yes (or no)? Yes
+
+Enter the x and y coordinates of a point:2 -5
+first = (2,-5)
+(2,-5) is in the fourth quadrant
+
+Do it again, yes (or no)? yES
+
+Enter the x and y coordinates of a point:-3 7
+first = (-3,7)
+(-3,7) is in the second quadrant
+
+Do it again, yes (or no)? yes
+
+Enter the x and y coordinates of a point:-1 -2
+first = (-1,-2)
+(-1,-2) is in the third quadrant
+
+Do it again, yes (or no)? no
+ */
