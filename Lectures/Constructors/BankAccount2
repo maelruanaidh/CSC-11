@@ -1,0 +1,76 @@
+import java.text.DecimalFormat;
+public class BankAccount
+{
+    private double balance;
+    
+    // constructors
+    public BankAccount() // no-argument constructor (default constructor)
+    {
+        balance = 100.00;
+    }
+
+    public BankAccount(double amount)
+    {
+        balance = amount;
+    }
+    
+    //methods
+    //assign value to the instance variable(s)
+    public void setData (double amount)
+    {
+        balance = amount;
+    }
+    
+    // custom equals method; compares objects
+    public boolean equals (BankAccount other)
+    {
+        if (balance == other.balance)
+            return true;
+        else
+            return false;
+    }
+    
+    // custom toString method; returns variable as a string
+    
+    public String toString ()
+    {
+        DecimalFormat dec = new DecimalFormat ("#00");
+        return "Today's balance: " + dec.format(balance);
+    }
+    
+    
+    // display the account statment
+    public void print()
+    {   
+        System.out.printf("Balance: %.2f\n", balance);
+    }
+    
+    /*
+    //return the balance
+    public double getBalance()
+    {
+            return balance;
+    }
+        
+        // deposit amount of money into acocunt
+        public void deposit (double amount)
+        {
+            balance = balance + amount;
+        }
+        
+        // withdrawl amount from the account
+        public void withdrawl (double amount)
+        {
+            if (amount > balance)
+            {
+                System.out.println("Insufficient balance");
+                return;
+            } else {
+                balance = balance - amount;
+                return;
+            }
+        }
+        
+   
+        */
+}
