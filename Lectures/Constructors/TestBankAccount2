@@ -1,0 +1,48 @@
+
+
+import java.util.Scanner;
+public class TestBankAccount
+{
+    public static void main (String [] args)
+    {
+        String again;
+        Scanner keyIn = new Scanner (System.in);
+        
+        do
+        {
+        // create two accounts
+        BankAccount one = new BankAccount();
+        System.out.print("Enter the opening account balance: ");
+        BankAccount two = new BankAccount(keyIn.nextDouble());
+        one.print();
+        two.print();
+        
+        if(two.equals(one))
+            System.out.println ("They are the same!");
+        else
+            System.out.println ("They are not the same!");
+            
+        System.out.println (one.toString());
+        System.out.println (two);
+        
+        System.out.print("Do it again, yes (or no)?");
+        again = keyIn.next();
+        
+        } while(again.equals("yes")); 
+        
+        /*
+        //open a bank account (create a bank account object)
+        BankAccount saving = new BankAccount();
+        saving.deposit(100);
+        saving.print();
+        System.out.printf("%.2f\n",saving.getBalance());
+        System.out.print("Enter how much to withdrawl: ");
+        double amount = keyIn.nextDouble();
+        saving.withdrawl(amount);
+        System.out.printf("%.2f\n",saving.getBalance());
+        saving.setData(500.00);
+        saving.print();
+        // System.out.println(saving);
+        */
+    }
+}
