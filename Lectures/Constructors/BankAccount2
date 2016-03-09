@@ -34,7 +34,7 @@ public class BankAccount
     
     public String toString ()
     {
-        DecimalFormat dec = new DecimalFormat ("#00");
+        DecimalFormat dec = new DecimalFormat ("#.00");
         return "Today's balance: " + dec.format(balance);
     }
     
