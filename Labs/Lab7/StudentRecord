@@ -1,0 +1,56 @@
+
+/**
+ * Programmer:  Name of the programmer(s)
+ * Course:      COSC 111, Winter 2016
+ * Lab#:        7
+ * Due date:    3-10-2016
+ */
+
+import java.text.DecimalFormat;
+public class StudentRecord
+{
+    // declared private instance variables
+    private int quiz1, quiz2, midterm, finalExam;
+    private double total, wqs, wmt, wfe;
+    private char letterGrade;
+    
+    // class constructors defined
+    public StudentRecord(int quiz1, int quiz2, int midterm, int finalExam) {
+        this.quiz1 = quiz1;
+        this.quiz2 = quiz2;
+        this.midterm = midterm;
+        this.finalExam = finalExam;
+    }
+    
+    // second part of the average method that sums the weigthed scores
+    public void average () {
+        wqs = ((((double) quiz1 + (double) quiz2) / 40.0) * 25.0);
+        wmt = (((double) midterm / 100.0) * 35.0);
+        wfe = (((double) finalExam / 100.0) * 40.0);
+        total = (wqs + wmt + wfe);
+        return;
+    }
+    
+    // grade assigns a letterGrade char to the value of the weighted average
+    public void grade () {
+        if (total > 89) {
+            letterGrade = 'A';
+        } else if (total > 79) {
+            letterGrade = 'B';
+        } else if (total > 69) {
+            letterGrade = 'C';
+        } else if (total > 69) {
+            letterGrade = 'D';
+        } else if (total > 59) {
+            letterGrade = 'F';
+        }
+        return; 
+    }
+    
+    // toString calls total, and formats it to one decimal place
+    public String toString ()
+    {
+        DecimalFormat dec = new DecimalFormat ("#.0");
+        return "Total Score\t" + dec.format(total);
+    }
+}
