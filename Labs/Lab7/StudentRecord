@@ -1,11 +1,11 @@
 
 /**
- * Programmer:  Name of the programmer(s)
+ * Programmer:  Brian A. Mulrooney
  * Course:      COSC 111, Winter 2016
  * Lab#:        7
  * Due date:    3-10-2016
  */
-
+import java.lang.*;
 import java.text.DecimalFormat;
 public class StudentRecord
 {
@@ -24,15 +24,16 @@ public class StudentRecord
     
     // second part of the average method that sums the weigthed scores
     public void average () {
-        wqs = ((((double) quiz1 + (double) quiz2) / 40.0) * 25.0);
-        wmt = (((double) midterm / 100.0) * 35.0);
-        wfe = (((double) finalExam / 100.0) * 40.0);
-        total = (wqs + wmt + wfe);
+        wqs = (((quiz1 + quiz2) / 40.0d) * 25.0d);
+        wmt = (( midterm / 100.0d) * 35.0d);
+        wfe = (( finalExam / 100.0d) * 40.0d);
+        // adding one-hundredth prevents java from rounding the tenths spot down from .5
+        total = (wqs + wmt + wfe + .01);
         return;
     }
     
     // grade assigns a letterGrade char to the value of the weighted average
-    public void grade () {
+    public char grade () {
         if (total > 89) {
             letterGrade = 'A';
         } else if (total > 79) {
@@ -44,13 +45,13 @@ public class StudentRecord
         } else if (total > 59) {
             letterGrade = 'F';
         }
-        return; 
+        return letterGrade; 
     }
     
     // toString calls total, and formats it to one decimal place
     public String toString ()
     {
-        DecimalFormat dec = new DecimalFormat ("#.0");
+        DecimalFormat dec = new DecimalFormat ("0.#");
         return "Total Score\t" + dec.format(total);
     }
 }
