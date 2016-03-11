@@ -5,9 +5,14 @@ public class TestStudentRecord {
         int quiz1, quiz2, midterm, finalE;
         Scanner keyIn = new Scanner (System.in);
         
+        System.out.println("Programmer:\tBrian A. Mulrooney");
+        System.out.println("Course:\tCOSC 111, Winter 2016");
+        System.out.println("Lab#:\t7");
+        System.out.println("Due date:\t3-10-2016");
+        
         // do while combo loopto repeat TestStudentRecord again yes (, or no)?
         do {
-            System.out.println("Enter your scores for quiz1, quiz2, midterm, and final: ");
+            System.out.print("\nEnter your scores for quiz1, quiz2, midterm, and final: ");
             quiz1 = keyIn.nextInt();
             quiz2 = keyIn.nextInt();
             midterm = keyIn.nextInt();
@@ -17,15 +22,51 @@ public class TestStudentRecord {
             
             stdRec.average();
             
-            System.out.println(quiz1);
-            
-            System.out.println(stdRec.toString());
-            
+            System.out.print("\n");
+            System.out.println("Grade Report:\t");
+            System.out.println("\tQuiz #1\t" + quiz1);
+            System.out.println("\tQuiz #2\t" + quiz2);
+            System.out.println("\tMidterm\t" + midterm);
+            System.out.println("\tFinal\t" + finalE);
+            System.out.println("\t" + stdRec.toString());
+            System.out.println("\tGrade\t" + stdRec.grade());
+            System.out.print("\n");
             System.out.print("Do it again, yes (or no)?");
             again = keyIn.next();
         
-        } while(again.equals("yes")); 
+        } while(again.equalsIgnoreCase("yes")); 
         
         
     }
 }
+
+/*
+Programmer:	Brian A. Mulrooney
+Course:	COSC 111, Winter 2016
+Lab#:	7
+Due date:	3-10-2016
+
+Enter your scores for quiz1, quiz2, midterm, and final: 13 17 80 69
+
+Grade Report:	
+	Quiz #1	13
+	Quiz #2	17
+	Midterm	80
+	Final	69
+	Total Score	74.4
+	Grade	C
+
+Do it again, yes (or no)?YES
+
+Enter your scores for quiz1, quiz2, midterm, and final: 10 10 100 90
+
+Grade Report:	
+	Quiz #1	10
+	Quiz #2	10
+	Midterm	100
+	Final	90
+	Total Score	83.5
+	Grade	B
+
+Do it again, yes (or no)?no
+ */
