@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class TestStudentRecord {
+    public static void main (String [] args) {
+        String again;
+        int quiz1, quiz2, midterm, finalE;
+        Scanner keyIn = new Scanner (System.in);
+        
+        // do while combo loopto repeat TestStudentRecord again yes (, or no)?
+        do {
+            System.out.println("Enter your scores for quiz1, quiz2, midterm, and final: ");
+            quiz1 = keyIn.nextInt();
+            quiz2 = keyIn.nextInt();
+            midterm = keyIn.nextInt();
+            finalE = keyIn.nextInt();
+            
+            StudentRecord stdRec = new StudentRecord(quiz1, quiz2, midterm, finalE);
+            
+            stdRec.average();
+            
+            System.out.println(quiz1);
+            
+            System.out.println(stdRec.toString());
+            
+            System.out.print("Do it again, yes (or no)?");
+            again = keyIn.next();
+        
+        } while(again.equals("yes")); 
+        
+        
+    }
+}
