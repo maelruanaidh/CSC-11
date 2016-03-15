@@ -41,8 +41,10 @@ public class Driver
         System.out.println("Square root of 25: " + Math.sqrt(25));
         
         // Use Static Math method to generate a random number
-        int random = (int)(Math.random()*100)+1;
-        System.out.println("This is a randomly generated number: " + random);
+        for (int i=1; i <= 10; i++) {
+            int random = (int)(Math.random()*100)+1;
+            System.out.println("This is a randomly generated number: " + random);
+        }
         
     }
 }
