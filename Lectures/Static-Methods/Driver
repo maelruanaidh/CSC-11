@@ -1,4 +1,4 @@
-
+import java.math.*;
 import java.util.Scanner;
 public class Driver
 {   
@@ -14,13 +14,35 @@ public class Driver
         int y = keyIn.nextInt();
         
         // Test Custom Static Sum; no object necessary, cannot use instance variable
-        System.out.println(TestStatic.sum(x,y));
+        System.out.println("Sum of ints: "+ TestStatic.sum(x,y));
+        
+         // raise x to the power y and display the result
+        System.out.println(x + " raised to the power of " + y + ": " + (int)Math.pow(x,y));
         
         // Test Static String Format; no object necessary, cannot use instance variable
-        System.out.println(String.format("%.1f",12.34567));
+        System.out.println(String.format("12.34567 truncated to tenths place: %.1f",12.34567));
         
         // An object must be created for non-static methods
-        TestStatic objectAddFive = new TestStatic(100);
-        System.out.println(objectAddFive.addFive());
+        TestStatic myObjectAddFive = new TestStatic(100);
+        TestStatic yourObjectAddFive = new TestStatic(200);
+        
+        // Print out my object with AddFive
+        System.out.println("Add five to my object value of 100: " +myObjectAddFive.addFive());
+        
+        
+        // Notice how both objects (mine and yours) affect the static varaible count
+        // Print out count with my object
+        System.out.println("Number of AddFive Objects; called with my object: " + myObjectAddFive.getCount());
+        
+        // Print out count with your object
+        System.out.println("Number of AddFive Objects; called with your object: " + yourObjectAddFive.getCount());
+        
+        // Use Static Math function to find the square root of a number
+        System.out.println("Square root of 25: " + Math.sqrt(25));
+        
+        // Use Static Math method to generate a random number
+        int random = (int)(Math.random()*100)+1;
+        System.out.println("This is a randomly generated number: " + random);
+        
     }
 }
