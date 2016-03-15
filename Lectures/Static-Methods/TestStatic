@@ -1,0 +1,19 @@
+public class TestStatic
+{
+    private int x;
+    
+    // constructor
+    public TestStatic (int num) {
+        x = num;
+    }
+    
+    // Custom Non-static Methods
+    public int addFive() {
+        return 5+x;
+    }
+    
+    // Custom Static Methods
+    public static int sum (int one, int two) {
+    return one + two;
+    }
+}
