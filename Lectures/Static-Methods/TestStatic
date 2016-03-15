@@ -1,10 +1,13 @@
 public class TestStatic
-{
+{   
     private int x;
+    // only objects of this class may access this variable
+    private static int count = 0;
     
     // constructor
     public TestStatic (int num) {
         x = num;
+        count ++;
     }
     
     // Custom Non-static Methods
@@ -15,5 +18,9 @@ public class TestStatic
     // Custom Static Methods
     public static int sum (int one, int two) {
     return one + two;
+    }
+    
+    public int getCount() {
+        return count;
     }
 }
