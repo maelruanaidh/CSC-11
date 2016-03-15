@@ -1,0 +1,26 @@
+
+import java.util.Scanner;
+public class Driver
+{   
+    public static void main (String [] args) {
+        // Initialize the scanner
+        Scanner keyIn = new Scanner (System.in);
+        
+        // Prompt user to provide two integers
+        System.out.print ("Enter two integers: ");
+        
+        // Key in variables
+        int x = keyIn.nextInt();
+        int y = keyIn.nextInt();
+        
+        // Test Custom Static Sum; no object necessary, cannot use instance variable
+        System.out.println(TestStatic.sum(x,y));
+        
+        // Test Static String Format; no object necessary, cannot use instance variable
+        System.out.println(String.format("%.1f",12.34567));
+        
+        // An object must be created for non-static methods
+        TestStatic objectAddFive = new TestStatic(100);
+        System.out.println(objectAddFive.addFive());
+    }
+}
