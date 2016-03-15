@@ -52,6 +52,6 @@ public class StudentRecord
     public String toString ()
     {
         DecimalFormat dec = new DecimalFormat ("0.#");
-        return "Total Score\t" + dec.format(total);
+        return dec.format(total);
     }
 }
