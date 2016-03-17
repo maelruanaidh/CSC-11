@@ -1,0 +1,38 @@
+/**
+ * Programmer:                  Brian A. Mulrooney
+ * Course:                      COSC 111, Winter 2016
+ * TakeHome Project1:           7
+ * Due date:                    3-17-2016
+ */
+
+import java.lang.*;
+import java.math.*;
+import java.util.Scanner;
+public class ProgramGuess
+{   
+    public static void main (String [] args) {
+    int count = 0;
+    String again = "";
+    
+     // initialize scanner
+     Scanner keyIn = new Scanner (System.in);
+     
+     //constructor 
+     // create an object nextInt to generate a new random number
+     int guess = (int)(Math.random()*100)+1;
+     
+     // Prompt user to make a guess
+     System.out.println("Enter a target value: ");
+     
+     // Key in guess
+     int target = keyIn.nextInt();
+     
+    do {
+     if (guess != target) {
+    System.out.println("Computer guess: "+ guess);
+    guess = (int)(Math.random()*100)+1;
+}
+System.out.println("Best score: " + count);
+} while (guess != target);
+}
+}
