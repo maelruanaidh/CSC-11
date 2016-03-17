@@ -1,0 +1,56 @@
+/**
+ * Programmer:                  Brian A. Mulrooney
+ * Course:                      COSC 111, Winter 2016
+ * TakeHome Project1:           7
+ * Due date:                    3-17-2016
+ */
+
+import java.lang.*;
+import java.math.*;
+import java.util.Scanner;
+public class YourGuess
+{   
+    public static void main (String [] args) {
+    int count = 0;
+    String again = "";
+    
+     // initialize scanner
+     Scanner keyIn = new Scanner (System.in);
+     
+     //constructor 
+     // create an object nextInt to generate a new random number
+     int target = (int)(Math.random()*100)+1;;
+     
+     // Prompt user to make a guess
+     System.out.println(target);
+     System.out.println("Guess a number between 1 and 100: ");
+     
+     // Key in guess
+     int guess = keyIn.nextInt();
+     
+    do {
+     if (guess != target) {
+     do {
+         count++;
+         if (guess < target) {
+             System.out.println("The number is higher. Try again.");
+         } else if (guess > target) {
+             System.out.println("The number is lower. Try again.");
+         }
+         // Prompt user to make a new guess
+         System.out.println("Guess a number between 1 and 100: ");
+         // Key in new guess
+         guess = keyIn.nextInt();
+        } while (guess != target);
+        System.out.println("You guessed correctly!");
+        System.out.println("Your score is: " + count);
+    } else {
+     count ++;
+     System.out.println("You guessed correctly!");
+     System.out.println("Your score is: " + count);
+    }
+    System.out.print("Do it again, yes (or no)?");
+    again = keyIn.next();
+    } while(again.equalsIgnoreCase("yes")); 
+}
+}
