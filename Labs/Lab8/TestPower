@@ -1,0 +1,17 @@
+/*
+ * Programmer:  Brian A. Mulrooney
+ * Course:      COSC 111
+ * Due Date:    3-17-2016
+ * Lab#:        8, Part#2
+ */
+import java.math.*;
+public class TestPower
+{   
+    public static int power (int x, int y) {
+        int product = 1;
+        for (int i = 1; i <= y; i++) {
+            product *= x;
+        }
+        return product;
+    }
+}
