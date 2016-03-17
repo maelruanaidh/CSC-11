@@ -1,0 +1,9 @@
+
+public class Area {   
+    public static double computeArea (double x, double y, double z) {
+        double s = ((x+y+z)/2);
+        double a = (s*(s-x)*(s-y)*(s-z));
+        return Math.sqrt(a);
+    }
+    
+}
