@@ -1,0 +1,57 @@
+/*
+ * Programmer:  Brian A. Mulrooney
+ * Course:      COSC 111
+ * Due Date:    3-17-2016
+ * Lab#:        8, Part#1
+ */
+import java.util.Scanner;
+public class TestArea {
+    // initialize main
+    public static void main (String [] args) {
+        double side1, side2, side3;
+        String again;
+        
+        // initialize scanner
+        Scanner keyIn = new Scanner(System.in);
+        
+        System.out.println("Programmer:  Brian A. Mulrooney");
+        System.out.println("Course:      COSC 111");
+        System.out.println("Due Date:    3-17-2016");
+        System.out.println("Lab#:        8, Part#1");
+        
+        do {
+        // prompt user to provide lengths for the sides of the triangle
+        System.out.print("\nEnter the lengths of the three sides: ");
+        
+        // key in values of side lengths to each of the three sides
+        side1 = keyIn.nextDouble();
+        side2 = keyIn.nextDouble();
+        side3 = keyIn.nextDouble();
+        
+        // call computeArea from Area class
+        System.out.printf("The area is: %.1f",Area.computeArea(side1,side2,side3));
+        
+        // request user if they would like to repeat the method
+        System.out.print("\n\nWould you like to find the area of another triangle, "
+                         +"yes (or no)?");
+        again = keyIn.next();
+        } while(again.equalsIgnoreCase("yes"));
+    }
+}
+
+/*
+Programmer:  Brian A. Mulrooney
+Course:      COSC 111
+Due Date:    3-17-2016
+Lab#:        8, Part#1
+
+Enter the lengths of the three sides: 4 4 4
+The area is: 6.9
+
+Would you like to find the area of another triangle, yes (or no)?YES
+
+Enter the lengths of the three sides: 3 2 3
+The area is: 2.8
+
+Would you like to find the area of another triangle, yes (or no)?No
+*/
