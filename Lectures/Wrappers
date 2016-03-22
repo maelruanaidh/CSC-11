@@ -1,0 +1,43 @@
+import java.util.Scanner;
+public class testWrapperClasses
+{      
+    public static void main (String [] args)
+    {   
+        /* Method Types:
+        i.      Constructors:
+        ii.     Accessors:
+                    a.      Only use the instance variable but does not change them
+        iii.    Mutators:
+                    b.      Change the instance variables.
+       
+      Wrapper Classes:
+        i.      int     -->     Integer
+        ii.     double  -->     Double
+        iii.    char    -->     Character
+      
+        */
+       
+        char letter;
+        Scanner keyIn = new Scanner (System.in);
+        System.out.print("Enter a letter: ");
+        
+        letter = keyIn.nextLine().charAt(0);
+        letter = Character.toUpperCase(letter);
+        System.out.println("letter = " + letter);
+        
+        // replace the whitesapce character with capital 'A'
+        if (Character.isWhitespace(letter)) {
+            letter = 'A';
+        }
+        System.out.println("letter = " + letter);
+        
+        // define wrapper integer object
+        Integer myInt = 47;
+        myInt += 10;
+        System.out.println(myInt.toString());
+        
+        Integer myIntA = new Integer(47);
+        myIntA = new Integer (myIntA.intValue() + 10);
+        System.out.println(myIntA.toString());
+    }
+}
