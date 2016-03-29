@@ -1,0 +1,71 @@
+import java.util.*;
+public class Intro2Arrays {
+   public static void main (String [] args) {
+       Scanner keyIn = new Scanner(System.in);
+       Random gen = new Random();
+       
+        System.out.print("Enter 10 whole numbers, " +
+                         "follwed by a return: ");
+                         
+       // create an array of size 10
+       int[] numbers = new int[10];
+       
+       for (int i=0; i < 10; i++) {
+           numbers[i] = keyIn.nextInt();
+        }
+       
+       System.out.println("\n An Array of user entered values:");
+       
+       // print out all of the elements in the array
+       for (int i=0; i < 10; i++) {
+           System.out.println(numbers[i]);
+       }
+       
+       System.out.println("\n An Array of random values:");
+       
+       // create an array of randomly generated numbers
+       int[] randoms = new int[10];
+       for (int i=0; i < 10; i++) {
+           randoms[i] = gen.nextInt(51)+50;
+        }
+        
+       for (int i=0; i < 10; i++) {
+           System.out.println(randoms[i]);
+       }
+       
+       System.out.println("\n An Array of hardcoded values:");
+       
+       // create an array of hardcoded values
+       int[] hardcodes = {10, 20, 30, 40, 50};
+        
+       for (int i=0; i<5; i++) {
+           System.out.println(hardcodes[i]);
+       }
+       
+       System.out.println("\n Prints sum of two ints:");
+       // call method 'sum' to add two ints
+       System.out.println(sum(10,20));
+       
+       System.out.println("\n Prints sum of two array elements:");
+       // call method 'sum' to add two array elements
+       System.out.println(sum(hardcodes[0],hardcodes[4]));
+       
+       System.out.println("\n Prints sum of all array elements:");
+       // call method 'sum' to add two array elements
+       System.out.println(sumArray(hardcodes));
+   }
+   
+    // returns the sum of its two arguments
+   public static int sum (int one, int two) {
+       return one + two;
+   }
+        
+   // returns the sum of all array elements
+   public static int sumArray (int [] num) {
+       int total = 0;
+       for (int i=0; i<num.length; i++) {
+           total += num[i];
+        }
+       return total;
+   }
+}
