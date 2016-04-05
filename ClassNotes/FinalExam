@@ -1,0 +1,19 @@
+// These WILL be on the exam:
+
+// Calculate the index value of the largest element
+int maxIndex = 0;
+  for (int i=0; i < userArray.length; i++) {
+  int newIndex = userArray[i];
+  if ((newIndex > userArray[maxIndex]))
+    maxIndex = i;
+  return maxIndex;
+}
+
+// Find the smallest value in the array
+int smallest(int []num);
+  int small = num[0];
+  for(int i=1; i<num.length;i++) {
+    if (small > num[i])
+      small = num[i];
+  return small;
+}
