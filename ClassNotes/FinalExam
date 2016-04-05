@@ -6,8 +6,7 @@ int maxIndex = 0;
   int newIndex = userArray[i];
   if ((newIndex > userArray[maxIndex]))
     maxIndex = i;
-  return maxIndex;
-}
+} return maxIndex;
 
 // Find the smallest value in the array
 int smallest(int []num);
@@ -15,8 +14,7 @@ int smallest(int []num);
   for(int i=1; i<num.length;i++) {
     if (small > num[i])
       small = num[i];
-  return small;
-}
+} return small;
 
 // Create a sorting argument for arrays
 int[] array = new int[10];
