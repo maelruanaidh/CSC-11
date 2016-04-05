@@ -1,0 +1,55 @@
+import java.util.*;
+public class SortingArrays
+{
+    public static void main (String[]args) {
+        int [] numbers = new int [10];
+        Random rand = new Random();
+        for (int i=0; i<numbers.length; i++)
+        numbers[i] = rand.nextInt(100) + 1;
+        
+        selectionSort(numbers);
+        output (numbers, 7);
+        output (numbers, 5);
+        for (int i=0; i<numbers.length;i++)
+            System.out.print(numbers[i]+" ");
+        System.out.println();
+    }
+    
+    // output the array elements
+    public static void output(int [] values, int howMany) {
+        for (int i=0; i<howMany;i++) {
+            System.out.print(values[i]+" ");
+        }
+        System.out.println();
+    }
+    
+    // return the index of the smallest value
+    public static int indexOfSmallest(int[]values, int start) {
+        int index = start;
+        for (int i=start+1; i<values.length; i++) {
+            if (values [index] > values[i]) {
+                index = i;
+            }
+        }
+        return index;
+    }
+
+    public static void selectionSort(int[]num) {
+        for (int i=0; i<num.length-1; i++) {
+            // Step #1
+            int index = indexOfSmallest(num,i);
+            // Step #2
+            if (i != index) {
+                int temp = num[i];
+                num[i] = num[index];
+                num[index]=temp;
+            }
+        }
+    }
+        // For defining multiple dimensional arrays
+        /* for (int row=0; row<3; row++){
+            for (int col=0; col<5; col++) {
+                numbers[row][col] = (row+1)*10;
+            }
+        } */
+}
