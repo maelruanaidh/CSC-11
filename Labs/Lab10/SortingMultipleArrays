@@ -1,0 +1,155 @@
+/* Programmer:  Brian A. Mulrooney
+ * Course:      COSC 111, Winter 2016
+ * Lab#:        10
+ * Due date:    04.07.16
+ */
+
+import java.util.*;
+public class SortMultiArrays
+{
+    public static void main (String [] args) {
+        Scanner keyIn = new Scanner (System.in);
+        
+        System.out.print("Programmer:  Brian A. Mulrooney\n");
+        System.out.print("Course:      COSC 111, Winter 2016\n");
+        System.out.print("Lab#:        10\n");
+        System.out.print("Due date:    04.07.16\n");
+        
+        // Sample data
+        /* 20
+         Indianapolis IN 783612
+         Detroit MI 925051
+         Washington DC 570898
+         Burlington VT 180000
+         Houston TX 2009834
+         Denver CO 560415
+         Philadelphia PA 1492231
+         Boston MA 589281
+         Charlotte NC 580597
+         Columbus OH 725228
+         Chicago IL 2886251
+         Lansing MI 275326
+         Austin TX 671873
+         Baltimore MD 638614
+         Milwaukee WI 590895
+         Seattle WA 570426
+         Dallas TX 1211467
+         Portland OR 539438
+         Toledo OH 371822
+         Syracuse NY 460230
+         */
+        System.out.print("\n");
+        System.out.println("Enter your data:");
+        
+        int arraySize = keyIn.nextInt();
+        
+        String[] city = new String[arraySize];
+        String[] state = new String[arraySize];
+        int[] pop = new int[arraySize];
+        
+        for (int i=0; i<arraySize; i++) {
+            city[i] = keyIn.next();
+            state[i] = keyIn.next();
+            pop[i] = keyIn.nextInt();
+        }
+        
+        System.out.print("\n");
+        System.out.print("The data sorted by population is: \n");
+        sortArray(city,state,pop);
+        
+        for (int i=0; i<pop.length; i++) {
+            System.out.printf("%-20s\t%s\t%7s\n",city[i],state[i] ,pop[i]);
+        }
+        System.out.print("\n");
+    }
+    
+    public static int indexOfLargest(int[]array, int start) {
+        int index = start;
+        for (int i=start+1; i<array.length; i++) {
+            if (array [index] < array[i]) {
+                index = i;
+            }
+        }
+        return index;
+    }
+    
+    public static void sortArray(String[]city,String[]state,int[]pop) {
+        for (int i=0; i<pop.length-1; i++) {
+            // Step #1
+            int index = indexOfLargest(pop,i);
+            // Step #2
+            if (i != index) {
+                String tempCity = city[i];
+                city[i] = city[index];
+                city[index]=tempCity;
+                
+                String tempState = state[i];
+                state[i] = state[index];
+                state[index]=tempState;
+                
+                int tempPop = pop[i];
+                pop[i] = pop[index];
+                pop[index]=tempPop;
+            }
+        }
+    }
+    
+    public static void printArray(String[]city,String[]state,int[]pop) {
+        for (int i=0; i<pop.length; i++) {
+            System.out.printf(city[i],state[i],pop[i]);
+        }
+        System.out.print("\n");
+    }
+}
+
+/*
+ Programmer:  Brian A. Mulrooney
+Course:      COSC 111, Winter 2016
+Lab#:        10
+Due date:    04.07.16
+
+Enter your data:
+20
+Indianapolis IN 783612 
+Detroit MI 925051 
+Washington DC 570898 
+Burlington VT 180000 
+Houston TX 2009834 
+Denver CO 560415 
+Philadelphia PA 1492231 
+Boston MA 589281 
+Charlotte NC 580597 
+Columbus OH 725228 
+Chicago IL 2886251 
+Lansing MI 275326 
+Austin TX 671873 
+Baltimore MD 638614 
+Milwaukee WI 590895 
+Seattle WA 570426
+Dallas TX 1211467 
+Portland OR 539438 
+Toledo OH 371822 
+Syracuse NY 460230 
+
+The data sorted by population is: 
+Chicago             	IL	2886251
+Houston             	TX	2009834
+Philadelphia        	PA	1492231
+Dallas              	TX	1211467
+Detroit             	MI	 925051
+Indianapolis        	IN	 783612
+Columbus            	OH	 725228
+Austin              	TX	 671873
+Baltimore           	MD	 638614
+Milwaukee           	WI	 590895
+Boston              	MA	 589281
+Charlotte           	NC	 580597
+Washington          	DC	 570898
+Seattle             	WA	 570426
+Denver              	CO	 560415
+Portland            	OR	 539438
+Syracuse            	NY	 460230
+Toledo              	OH	 371822
+Lansing             	MI	 275326
+Burlington          	VT	 180000
+ */
