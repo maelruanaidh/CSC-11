@@ -1,0 +1,73 @@
+/* Programmer:  Brian A. Mulrooney
+ * Course:      COSC 111, Winter 2016
+ * Lab#:       Take Home Project #2
+ * Due Date:   04.07.16
+ */
+
+import java.util.*;
+public class CyclicalNumbers {
+    public static void main (String [] args) {
+        int cycical = 142857;
+        int[] multiples = new int[5];
+        
+        Scanner keyIn = new Scanner(System.in);
+        
+        System.out.print("Programmer:  Brian A. Mulrooney\n");
+        System.out.print("Course:      COSC 111, Winter 2016\n");
+        System.out.print("Lab#:       Take Home Project #2\n");
+        System.out.print("Due Date:   04.07.16\n");
+        
+        System.out.print("\nPlease enter five whole numbers: ");
+        
+        for (int i=0; i<5; i++) {
+            multiples[i] = keyIn.nextInt();
+        }
+        
+        System.out.print("\n" + cycical + "\n");
+        
+        printArray(multiples);
+        
+        // Sample multiples: 6 2 7 5 12
+        printArray(multiplesProduct(multiples,cycical));
+        
+        printBooArray(isCyclic(multiplesProduct(multiples,cycical)));
+        
+        
+    }
+    
+    public static int[] multiplesProduct(int[]array, int cyclical) {
+        int[] products = new int[array.length];
+        
+        for (int i=0; i<array.length; i++) {
+            products[i] = array[i] * cyclical;
+        }
+        
+        return products;
+    }
+    
+    public static void printArray(int[]array) {
+        for (int i=0; i<array.length; i++) {
+            System.out.println(array[i]);
+        }
+        System.out.print("\n");
+    }
+    
+    public static void printBooArray(boolean[]array) {
+        for (int i=0; i<array.length; i++) {
+            System.out.println(array[i]);
+        }
+        System.out.print("\n");
+    }
+    
+    // cheating method
+    public static boolean[] isCyclic(int[]array) {
+        boolean[] isCyclic = new boolean[array.length];
+        for (int i=0; i<array.length; i++) {
+            if (array[i] == 142857 || array[i] == 285714 || array[i] == 428571 || array[i] == 571428 || array[i] == 714285 || array[i] == 857142) {
+                isCyclic[i] = true;
+            } else {
+                isCyclic[i] = false;
+            }
+        } return isCyclic;
+    }
+}
