@@ -4,6 +4,13 @@
  * Due date:    04.07.16
  */
 
+/* This program sorts multiple arrays based on the population value
+ * It captures user inputed data to create 3 arrays
+ * 2 of type String (City & State), 1 of type int (Population)
+ * The String arrays are sorted with Population
+ * (Descending from largest to smallest)
+ */
+
 import java.util.*;
 public class SortMultiArrays
 {
@@ -58,7 +65,8 @@ public class SortMultiArrays
         sortArray(city,state,pop);
         
         for (int i=0; i<pop.length; i++) {
-            System.out.printf("%-20s\t%s\t%7s\n",city[i],state[i] ,pop[i]);
+            System.out.printf("%-20s\t%s\t%7s\n",
+                              city[i],state[i] ,pop[i]);
         }
         System.out.print("\n");
     }
