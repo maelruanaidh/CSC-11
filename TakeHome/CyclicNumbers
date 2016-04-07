@@ -7,7 +7,6 @@
 import java.util.*;
 public class CyclicalNumbers {
     public static void main (String [] args) {
-        int cycical = 142857;
         int[] multiples = new int[5];
         
         Scanner keyIn = new Scanner(System.in);
@@ -17,22 +16,23 @@ public class CyclicalNumbers {
         System.out.print("Lab#:       Take Home Project #2\n");
         System.out.print("Due Date:   04.07.16\n");
         
-        System.out.print("\nPlease enter five whole numbers: ");
+        // test cyclic 142857
+        System.out.print("\nPlease enter an integer" + 
+                         " to test if cyclic: ");
+        int cycical = keyIn.nextInt();
         
+        System.out.print("\nPlease enter five whole numbers" + 
+                         " to test against: ");
+        
+        // test numbers 6 2 7 5 12
         for (int i=0; i<5; i++) {
             multiples[i] = keyIn.nextInt();
         }
         
-        System.out.print("\n" + cycical + "\n");
+        System.out.print("\n");
         
-        printArray(multiples);
-        
-        // Sample multiples: 6 2 7 5 12
-        printArray(multiplesProduct(multiples,cycical));
-        
-        printBooArray(isCyclic(multiplesProduct(multiples,cycical)));
-        
-        
+        printBooArray(isCyclic( sortArray(toArray(cycical)),
+                                multiplesProduct(multiples,cycical) ));
     }
     
     public static int[] multiplesProduct(int[]array, int cyclical) {
@@ -52,22 +52,94 @@ public class CyclicalNumbers {
         System.out.print("\n");
     }
     
-    public static void printBooArray(boolean[]array) {
+    public static void printBooArray(boolean[] array) {
         for (int i=0; i<array.length; i++) {
             System.out.println(array[i]);
         }
         System.out.print("\n");
     }
     
-    // cheating method
-    public static boolean[] isCyclic(int[]array) {
-        boolean[] isCyclic = new boolean[array.length];
-        for (int i=0; i<array.length; i++) {
-            if (array[i] == 142857 || array[i] == 285714 || array[i] == 428571 || array[i] == 571428 || array[i] == 714285 || array[i] == 857142) {
-                isCyclic[i] = true;
-            } else {
-                isCyclic[i] = false;
+    public static int[] toArray(int number) {
+        String temp = Integer.toString(number);
+        int[] array = new int[temp.length()];
+        for (int i = 0; i < temp.length(); i++)
+        {
+            array[i] = temp.charAt(i) - '0';
+        } return array;
+    }
+    
+    public static int indexOfSmallest(int[]array, int start) {
+        int index = start;
+        for (int i=start+1; i<array.length; i++) {
+            if (array [index] > array[i]) {
+                index = i;
             }
+        }
+        return index;
+    }
+
+    public static int[] sortArray(int[]array) {
+        for (int i=0; i<array.length-1; i++) {
+            // Step #1
+            int index = indexOfSmallest(array,i);
+            // Step #2
+            if (i != index) {
+                int temp = array[i];
+                array[i] = array[index];
+                array[index]=temp;
+            }
+        }
+        
+        return array;
+    }
+    
+    public static boolean equalSize (int[]testArray, int[]productArray) {
+        boolean isEqual = false;
+        if (testArray.length == productArray.length) {
+            isEqual = true;
+        } else {
+            isEqual = false;
+        } return isEqual;
+    }
+    
+    public static boolean sameValue(int[]testArray, int[]productArray) {
+        boolean sameValue = true;
+        if (equalSize(testArray,productArray)==true) {
+            for (int i=0; i<testArray.length; i++) {
+                if (testArray[i] == productArray[i]) {
+                    sameValue = true;
+                } else {
+                    sameValue = false;
+                    break;
+                }
+            }
+        } return sameValue;
+    }
+    
+    public static boolean[] isCyclic(int[]testArray,int[]productArray) {
+        boolean[] isCyclic = new boolean[productArray.length];
+        for (int i=0; i<productArray.length; i++) {
+            int[] sortedProduct = sortArray(toArray(productArray[i]));
+            if(equalSize(testArray,sortedProduct)) {
+                isCyclic[i]=sameValue(testArray,sortedProduct);
+                } else { isCyclic[i] = false;}
         } return isCyclic;
     }
 }
+
+/*
+Programmer:  Brian A. Mulrooney
+Course:      COSC 111, Winter 2016
+Lab#:       Take Home Project #2
+Due Date:   04.07.16
+
+Please enter an integer to test if cyclic: 142857
+
+Please enter five whole numbers to test against: 6 2 7 5 12
+
+true
+true
+false
+true
+false
+ */
