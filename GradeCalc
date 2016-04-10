@@ -1,0 +1,135 @@
+
+/**
+ * A simple grade calculator for COSC111.
+ * 
+ * @author Brian A. Mulrooney
+ * @version 04.10.16
+ */
+import java.util.*;
+public class GradeCalc
+{
+    public static void main (String [] args) {
+        String again;
+        Scanner keyIn = new Scanner (System.in);
+        
+        System.out.println("A simple grade calculator for COSC111.");
+        System.out.println("@author:    Brian A. Mulrooney");
+        System.out.println("@version:   04.10.16");
+        System.out.println("");
+        
+        do {
+            printScore(userScore());
+            
+            System.out.print("\nDo it again, yes (or no)? ");
+            again = keyIn.next();
+        } while(again.equalsIgnoreCase("yes")); 
+    }
+    
+    public static double[] captureScore (String name, int freq){
+        Scanner keyIn = new Scanner (System.in);
+        System.out.print("Please enter your "+ name +" scores: ");
+        double[] array = new double[freq];
+        for (int i=0; i<freq; i++) {
+            double x = keyIn.nextDouble();
+            array[i] = x;
+        }   System.out.print("\n");
+        
+        return array;
+    }
+    
+    public static double[] userScore() {
+        String l = "lab";
+        String t = "take home project";
+        String q = "quiz";
+        String e = "exam";
+        String a = "attendence";
+        int labFreq = 10;
+        int takeHomeFreq = 2;
+        int quizFreq = 3;
+        int examFreq = 3;
+        int attFreq = 1;
+        double lWeight = 0.4;
+        double qWeight = 0.09;
+        double eWeight = 0.48;
+        double aWeight = 0.03;
+        double lMax = 240.0;
+        double qMax = 60.0;
+        double eMax = 60.0;
+        double aMax = 27.0;
+        
+        // Method to capture an double array of Lab Scores
+        // Max Score: 20 20 20 20 20 20 20 20 20 20
+        double[] rawLab = captureScore(l,labFreq);
+        
+        // Method to capture an double array of Take Home Project Scores
+        // Max Score: 20 20
+        double[] rawTakeHome = captureScore(t,takeHomeFreq);
+        double totalLab = totalScore(rawLab) + totalScore(rawTakeHome);
+        double labWeight = weightedScore(lWeight, totalLab, lMax);
+        
+        // Method to capture an double array of Quiz Scores
+        // Max Score: 20 20 20
+        double[] rawQuiz = captureScore(q,quizFreq);
+        double totalQuiz = totalScore(rawQuiz);
+        double quizWeight = weightedScore(qWeight, totalQuiz,qMax);
+        
+        // Method to capture an double array of Exam Scores
+        // Max Score: 20 20 20
+        double[] rawExam = captureScore(e,examFreq);
+        double totalExam = totalScore(rawExam);
+        double examWeight = weightedScore(eWeight, totalExam, eMax);
+        
+        // Method to capture an double array of Attendence Score
+        // Max Score: 27
+        double[] rawAtt = captureScore(a,attFreq);
+        double totalAtt = totalScore(rawAtt);
+        double attWeight = weightedScore(aWeight, totalAtt, aMax);
+        
+        double[] userScore = new double [2];
+        double rawScore = totalLab + totalQuiz + totalExam + totalAtt;
+        double weightedScore = labWeight + quizWeight + examWeight + attWeight;
+        
+        userScore[0] = rawScore;
+        userScore[1] = weightedScore;
+        
+        return userScore;
+    }
+    
+    public static double totalScore(double[]array) {
+        double total = 0;
+        for (int i=0; i<array.length; i++) {
+            total += array[i];
+        }   return total;
+    }
+    
+    // Method to store an array of Grade Weights
+    public static double weightedScore (double weight, double score, double max) {
+        double weightedScore = (score / max) * weight;
+        return weightedScore;
+    }
+    
+    public static void printScore (double[]array) {
+        for (int i=0; i<array.length; i++) {
+            if (i==0) {
+                System.out.println("Final Score:\t" + array[i]);
+            } else {
+                char letterGrade;
+                
+                if (array[i] > .8999) {
+                    letterGrade = 'A';
+                } else if (array[i] > .7999) {
+                    letterGrade = 'B';
+                } else if (array[i] > .6999) {
+                    letterGrade = 'C';
+                } else if (array[i] > .5999) {
+                    letterGrade = 'D';
+                } else {
+                    letterGrade = 'F';
+                }
+                
+                System.out.println("Final Grade:\t" + array[i]);
+                System.out.println("Letter Grade:\t" + letterGrade);
+            }
+        }
+    }
+}
