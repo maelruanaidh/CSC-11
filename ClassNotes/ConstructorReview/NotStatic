@@ -1,0 +1,13 @@
+public class notStatic {
+    //this.x
+    private double x;
+    
+    public notStatic(double first) {
+        x = first;
+    }
+    
+    public double mystery (double x) {
+        // local int x is just called x
+        return Math.sqrt(this.x + x);
+    }
+}
