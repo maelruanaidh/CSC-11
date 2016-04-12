@@ -1,0 +1,5 @@
+public class Static {
+    public static double doSomething (double foo, double bar) {
+        return Math.pow(foo,bar);
+    }
+}
