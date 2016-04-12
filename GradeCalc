@@ -1,3 +1,4 @@
+// Work in progress //
 
 /**
  * A simple grade calculator for COSC111.
@@ -51,11 +52,7 @@ public class GradeCalc
         double lWeight = 0.4;
         double qWeight = 0.09;
         double eWeight = 0.48;
-        double aWeight = 0.03;
-        double lMax = 240.0;
-        double qMax = 60.0;
-        double eMax = 60.0;
-        double aMax = 27.0;
+        double aWeight = 0.030;
         
         // Method to capture an double array of Lab Scores
         // Max Score: 20 20 20 20 20 20 20 20 20 20
@@ -64,29 +61,33 @@ public class GradeCalc
         // Method to capture an double array of Take Home Project Scores
         // Max Score: 20 20
         double[] rawTakeHome = captureScore(t,takeHomeFreq);
+        
         double totalLab = totalScore(rawLab) + totalScore(rawTakeHome);
-        double labWeight = weightedScore(lWeight, totalLab, lMax);
+        double labWeight = weightedScore(lWeight, totalLab, max((labFreq + takeHomeFreq)));
         
         // Method to capture an double array of Quiz Scores
         // Max Score: 20 20 20
         double[] rawQuiz = captureScore(q,quizFreq);
         double totalQuiz = totalScore(rawQuiz);
-        double quizWeight = weightedScore(qWeight, totalQuiz,qMax);
+        double quizWeight = weightedScore(qWeight, totalQuiz,max(quizFreq));
         
         // Method to capture an double array of Exam Scores
         // Max Score: 20 20 20
         double[] rawExam = captureScore(e,examFreq);
         double totalExam = totalScore(rawExam);
-        double examWeight = weightedScore(eWeight, totalExam, eMax);
+        double examWeight = weightedScore(eWeight, totalExam, max(examFreq));
         
         // Method to capture an double array of Attendence Score
         // Max Score: 27
-        double[] rawAtt = captureScore(a,attFreq);
-        double totalAtt = totalScore(rawAtt);
-        double attWeight = weightedScore(aWeight, totalAtt, aMax);
+        double attWeight = catScore(a, attFreq, aWeight);
         
         double[] userScore = new double [2];
         double rawScore = totalLab + totalQuiz + totalExam + totalAtt;
+        
+        System.out.println(labWeight);
+        System.out.println(quizWeight);
+        System.out.println(examWeight);
+        System.out.println(attWeight);
         double weightedScore = labWeight + quizWeight + examWeight + attWeight;
         
         userScore[0] = rawScore;
@@ -132,4 +133,22 @@ public class GradeCalc
             }
         }
     }
+    
+    public static double max (int freq) {
+        double max = 0;
+        if (freq == 1) {
+            max = 27.0;
+        } else {
+            max = freq * 20.0;
+        } return max;
+    }
+    
+    public static double catScore (String name, int freq, double weight) {
+        double[] raw = captureScore (name, freq);
+        double total = totalScore (raw);
+        double weighted = weightedScore(weight, total, max(freq));
+        return weighted;
+    }
+    
+    
 }
