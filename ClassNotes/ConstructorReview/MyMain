@@ -1,0 +1,16 @@
+import java.util.*;
+public class MyMain {
+    public static void main (String [] args) {
+        Scanner keyIn = new Scanner(System.in);
+        
+        System.out.print("Enter two decimal" + "numbers: ");
+        
+        double x = keyIn.nextDouble();
+        double y = keyIn.nextDouble();
+        
+        notStatic me = new notStatic(x);
+        System.out.println(me.mystery(y));
+        
+        System.out.println(Static.doSomething(x,y));
+    }
+}
